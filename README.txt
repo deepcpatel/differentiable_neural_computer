@@ -3,7 +3,7 @@ Differentiable Neural Computer (DNC) implementation in PyTorch
 ********************************************************************************
 
 • My implementation of Differentiable Neural Computer (DNC) in PyTorch.
-• DNC is introduced in the paper "Hybrid computing using a neural network with dynamic external memory" in the year 2016 by DeepMind researchers.
+• DNC is introduced in the paper "Hybrid computing using a neural network with dynamic external memory", year 2016 by DeepMind researchers.
 • Currently, "bAbI Question Answering task" and "Pattern Copy task" is implemented for CPU and GPU each.
 • Although I have tested the code thoroughly, bugs may persist. In that case you are encouraged to report them.
 
