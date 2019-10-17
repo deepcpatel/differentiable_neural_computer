@@ -37,6 +37,6 @@ class controller(nn.Module):    # LSTM Controller
         return self.num_inputs, self.num_outputs
 
     def forward(self, inp, prev_state):
-        inp = inp.unsqueeze(0)              # inp dimension after unsqueeze : (1 x inp.shape)
-        output, state = self.lstm_network(inp, prev_state)
+        inp = inp.unsqueeze(0)                              # inp dimension after unsqueeze : (1 x inp.shape)
+        output, state = self.lstm_network(inp, prev_state)  # Input to LSTM must be of shape (seq_len x batch_size x input_size) in Pytorch. Here, seq_len = 1
         return output.squeeze(0), state
