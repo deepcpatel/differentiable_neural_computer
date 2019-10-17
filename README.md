@@ -5,14 +5,14 @@
 • Currently, **bAbI Question Answering task** and **Pattern Copy task** is implemented for CPU and GPU both.<br/>
 • Although I have tested the code thoroughly, bugs may persist. In that case you are encouraged to report them.<br/>
 
-### Platform:
-The code is written in `Python 3.6` in `Ubuntu 18.04` Operating System.
+### Platform
+The code is written in `Python 3.6` using `PyTorch 1.1.0` in `Ubuntu 18.04` Operating System.
 
-### Libraries required:
+### Libraries required
 NumPy <br/>
 PyTorch
 
-### Train the model by writing following in the terminal:
+### Train the model by writing following in the terminal
 `python3 train.py opt1 opt2`
 
 ```
@@ -24,7 +24,7 @@ opt2: 1). GPU to run code on GPU
       2). CPU to run code normally
 ```
 
-### Test the model by writing following in the terminal:
+### Test the model by writing following in the terminal
 `python3 test.py opt1 opt2 opt3 opt4`
 
 ```
@@ -40,6 +40,6 @@ opt3: Last Epoch number till the model was trained (Not Applicable for Copy Task
 Opt4: Last Batch Number till the model was trained 
 ```
 
-### References:
+### References
 1). https://github.com/loudinthecloud/pytorch-ntm <br/>
 2). https://github.com/bgavran/DNC
