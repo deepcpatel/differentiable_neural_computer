@@ -44,11 +44,10 @@ class DNC_Module(nn.Module):
         out, self.previous_state = self.processor(X, self.previous_state, self.memory)
         return out, self.previous_state
     
-    def calculate_num_params(self):
-        '''
-        This maybe for model statistics. Adapted from GitHub Implementation
-        '''
+    '''
+    def calculate_num_params(self):     # This maybe for model statistics. Adapted from GitHub Implementation
         num_params = 0
         for p in self.parameters():
             num_params += p.data.view(-1).size(0)
         return num_params
+    '''
