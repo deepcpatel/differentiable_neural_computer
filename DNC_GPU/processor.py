@@ -240,7 +240,7 @@ class processor(nn.Module):
     def forward(self, X, prev_state, memory):   # X dimensions -> (batch_size x num_inputs)
         
         # Previous State Unpacking:
-        prev_read, prev_controller_state, prev_head_weights, prev_usage, prev_prec_weights, prev_tempo_links  = prev_state
+        prev_read, prev_controller_state, prev_head_weights, prev_usage, prev_prec_weights, prev_tempo_links = prev_state
 
         # prev_read[i] -> batch_size x M
         # prev_read -> batch_size x (M*no_read_heads) 
