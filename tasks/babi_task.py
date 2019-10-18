@@ -303,7 +303,7 @@ class task_babi():
                 for i in range(X.shape[0]):
                     Y_out[i, :, :], _ = self.machine(X[i])
 
-                loss = self.calc_loss(Y_out, Y, mask)       # Left: Calculate Accuracy instead of Loss
+                loss = self.calc_loss(Y_out, Y, mask)
                 loss.backward()
                 self.clip_grads()
                 self.optimizer.step()
