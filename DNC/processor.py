@@ -1,4 +1,4 @@
-# Processor for Neural Turing Machine
+# Processor for Differentiable Neural Computer
 import torch
 from torch import nn
 import numpy as np

@@ -49,7 +49,7 @@ class task_babi():
         self.machine = DNC_Module(self.sequence_width, self.sequence_width, self.controller_size, self.controller_layers, self.num_read_heads, self.num_write_heads, self.memory_N, self.memory_M)
 
     def init_loss(self):
-        self.loss = nn.CrossEntropyLoss(reduction = 'none')  # Cross Entropy Loss -> Sigmoid Activation + Cross Entropy Loss
+        self.loss = nn.CrossEntropyLoss(reduction = 'none')  # Cross Entropy Loss in Pytorch -> Softmax Activation + Cross Entropy Loss
 
     def init_optimizer(self):
         self.optimizer = optim.Adam(self.machine.parameters(), lr = self.adam_lr, betas = self.adam_betas, eps = self.adam_eps)
