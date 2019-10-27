@@ -159,8 +159,8 @@ class task_babi():
                 
                 # Padding
                 x_out_array = torch.tensor(np.asarray(self.padding(x_out)).swapaxes(0, 1))                              # Converting from (batch_size x story_length x word size) to (story_length x batch_size x word size)
-                y_out_array = torch.tensor(np.asarray(self.padding_labels(y_out)).swapaxes(0, 1), dtype=torch.long)     # Converting from (batch_size x story_length x word size) to (story_length x batch_size x word size)
-                m_inp_array = torch.tensor(np.asarray(self.padding_labels(mask_inp)).swapaxes(0, 1), dtype=torch.long)  # Converting from (batch_size x story_length x word size) to (story_length x batch_size x word size)
+                y_out_array = torch.tensor(np.asarray(self.padding_labels(y_out)).swapaxes(0, 1), dtype=torch.long)     # Converting from (batch_size x story_length x 1) to (story_length x batch_size x 1)
+                m_inp_array = torch.tensor(np.asarray(self.padding_labels(mask_inp)).swapaxes(0, 1), dtype=torch.long)  # Converting from (batch_size x story_length x 1) to (story_length x batch_size x 1)
 
                 # Renewing List and updating batch number
                 x_out = []
