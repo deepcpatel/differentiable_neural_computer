@@ -21,7 +21,7 @@ class task_babi():
         self.controller_layers = 1
         self.num_read_heads = 1
         self.num_write_heads = 1
-        self.sequence_width = -1    # Length of each word
+        self.sequence_width = -1    # Length of each one hot vector of word (both input and output)
         self.sequence_len = -1      # Word length of each story
         self.memory_N = 128
         self.memory_M = 128
