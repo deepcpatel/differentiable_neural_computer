@@ -71,7 +71,7 @@ class task_babi():
         # Y: dim -> (sequence_len x batch_size)
         # Y_pred: dim -> (sequence_len x batch_size x sequence_width)
         # mask: dim -> (sequence_len x batch_size)
-        Y_pred, Y, mask = Y_pred.cpu(), Y.cpu(), mask.cpu()
+        Y_pred = Y_pred.cpu()
         return torch.sum(((F.softmax(Y_pred, dim=2).max(2)[1]) == Y).type(torch.long)*mask.type(torch.long)).item(), torch.sum(mask).item()
 
     def print_word(self, word_vec):         # Prints the word from word vector
@@ -260,13 +260,13 @@ class task_babi():
 
         for batch_num, X, Y, mask in self.get_test_data():
             self.machine.initialization(self.batch_size)    # Initializing states
-            Y_out = torch.zeros(X.shape)
+            Y_out = torch.zeros(X.shape).cuda()
 
             # Feeding the DNC network all the data first and then predicting output
             # by giving zero vector as input and previous read states and hidden vector
             # and thus training vector this way to give outputs matching the labels
 
-            X, Y, mask = X.cuda(), Y.cuda(), mask.cuda()       # Sending to CUDA device
+            X = X.cuda()       # Sending to CUDA device
 
             for i in range(X.shape[0]):
                 Y_out[i, :, :], _ = self.machine(X[i])
