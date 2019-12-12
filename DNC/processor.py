@@ -49,7 +49,7 @@ class processor(nn.Module):
         # 2). But, in PyTorch, Tensors created; by default have require_grads() False
         # 3). Therefore, I think that both are same
         # 4). Variables in PyTorch are replaced with Tensors from verson 0.4.0
-        # 5). Buffers are useful for storing values of an entity into state_dict (done using regiser_buffer() method) but does not require calculation of gradients on the entity
+        # 5). Buffers are useful for storing values of an entity into state_dict (done using register_buffer() method) but does not require calculation of gradients on the entity
 
         for head in self.heads:
             if head.head_type() == 'R':
@@ -178,9 +178,9 @@ class processor(nn.Module):
         graph after that. However, in the next iteration, it will construct the graph again, and will not find the 
         initialization in the graph, because the previous graph having the initialization operation was deleted 
         (as explained here: https://stackoverflow.com/questions/55268726/pytorch-why-does-preallocating-memory-cause-trying-to-backward-through-the-gr).
-        One solution is to nable "specify retain_graph=True" in the backward() function. However, this stores all the 
+        One solution is to enable "specify retain_graph=True" in the backward() function. However, this stores all the 
         graph of the previous iterations and therefore, each succeding iteration will take more time to execute as well 
-        as there will be significant overhead. Therefore, instead of initializing, I an going to pass the previous values 
+        as there will be significant overhead. Therefore, instead of initializing, I am going to pass the previous values 
         in the form of arguments of the function and will return the new values from the function, to maintain the graph.
         '''
 
@@ -210,7 +210,7 @@ class processor(nn.Module):
         w_head_count = 0            # Counter
         # K = int(self.N/2)         # Select first K sorted elements. This feature is currently not implemented. Idea: Instead of fixed K, it maybe be learned by the network.
         new_prec_weights = []       # List to store new precedence weights
-        new_tempo_links = []        # List to Store new Temporal Links
+        new_tempo_links = []        # List to store new Temporal Links
         idx = torch.arange(self.N)  # Range of Indices
 
         for head in self.heads:
